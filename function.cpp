@@ -61,7 +61,10 @@ NODE* insert(NODE* tree,TYPEINFO data) {
 
 	tree = splay(tree, data);
 
-	if(tree->value == data) return tree;
+	if(tree->value == data){ 
+		cout<<"Duplicate value!\n";
+		return tree;
+	}
 	NODE* node = createNode(data);
 	if(tree->value > data){
 		node->right = tree;
@@ -75,6 +78,18 @@ NODE* insert(NODE* tree,TYPEINFO data) {
 	}
 	return node;
 }
+
+void createTree(NODE*& tree){
+	TYPEINFO data;
+	while(true){
+		cout<<"Enter data (-99 break): "; cin >> data;
+		if(data != -99)
+			tree = insert(tree, data);
+		else break;
+	}
+}
+
+
 void preOrder(NODE* tree) {
 	if(tree != nullptr){
 		cout<<tree->value<<"\t";

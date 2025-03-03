@@ -16,5 +16,4 @@ NODE* leftRotate(NODE* tree);
 NODE* splay(NODE* tree, TYPEINFO data);
 NODE* insert(NODE* tree,TYPEINFO data);
 void preOrder(NODE* tree);
-
-
+void createTree(NODE*& tree);
